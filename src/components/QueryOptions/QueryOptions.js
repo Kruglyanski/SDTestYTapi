@@ -15,11 +15,12 @@ export const QueryOptions = ({saveButtonTitle, cancelButtonTitle, searchQuery}) 
     const favorites = useSelector(state => state.videos.favorites)
     const current = useSelector(state => state.videos.current)
     const editedId = useSelector(state => state.videos.editedId)
+    const userId = useSelector(state => state.auth.userId)
     const dispatch = useDispatch()
     const [editedItem, setEditedItem] = useState(null)
 
     useEffect(() => {
-        localStorage.setItem('favorites', JSON.stringify({
+        localStorage.setItem(`favorites_${userId}`, JSON.stringify({
             favorites
         }))
     }, [favorites])
@@ -45,7 +46,7 @@ export const QueryOptions = ({saveButtonTitle, cancelButtonTitle, searchQuery}) 
         })
         dispatch(filterFavorites(filteredFavorites))
         dispatch(addQuery(current))
-        localStorage.setItem('favorites', JSON.stringify({
+        localStorage.setItem(`favorites_${userId}`, JSON.stringify({
             favorites
         }))
         dispatch(setCurrent({currentTitle: ''}))

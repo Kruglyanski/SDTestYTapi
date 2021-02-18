@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useCallback, useEffect, useMemo, useState} from 'react'
 import {Col, List, Row} from 'antd'
 import {useDispatch, useSelector} from 'react-redux'
 import {FormOutlined, DeleteOutlined, CaretRightOutlined} from '@ant-design/icons'
 import {
+    addLocalStorageQueries,
     filterFavorites,
     loadSavedVideos,
     setCurrent, setEditedId,
@@ -13,9 +14,14 @@ import {CustomModal} from '../Modal/Modal'
 
 export const Favorites = () => {
     const favorites = useSelector(state => state.videos.favorites)
+    const userId = useSelector(state => state.auth.userId)
     const dispatch = useDispatch()
     const [searchQueryFav, setSearchQueryFav] = useState('')
     const history = useHistory()
+    useEffect(()=> {
+            const localStorageFavData = JSON.parse(localStorage.getItem(`favorites_${userId}`))
+            localStorageFavData && dispatch(addLocalStorageQueries(localStorageFavData.favorites))
+        }, [])
 
     const onRunHandler = async (e) => {
         history.push(`/search`)

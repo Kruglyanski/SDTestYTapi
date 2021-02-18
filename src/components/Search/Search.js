@@ -11,7 +11,6 @@ const {Search} = Input
 
 export const CustomSearch = () => {
     const isFetched = useSelector(state => state.videos.isFetched)
-    const items = useSelector(state => state.videos.items)
     const value = useSelector(state => state.videos.value)
     const current = useSelector(state => state.videos.current)
     const userId = useSelector(state => state.auth.userId)

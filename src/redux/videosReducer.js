@@ -63,7 +63,7 @@ const videosReducer = createSlice({
         addLocalStorageQueries: (state, action) => {
             return {
                 ...state,
-                favorites: [...state.favorites, ...action.payload]
+                favorites: action.payload
             }
         },
         filterFavorites: (state, action) => {

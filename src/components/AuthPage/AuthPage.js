@@ -1,23 +1,19 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useMemo} from 'react'
 import {Form, Input, Button} from 'antd'
 import './AuthPage.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {authLogin, formChange, setIsAuthenticated} from '../../redux/authReducer'
 import * as jwt from 'jsonwebtoken'
-import {addLocalStorageQueries} from '../../redux/videosReducer'
 import {EnterMessage} from '../EnterMessage/EnterMessage'
 
 export const AuthPage = () => {
     const form = useSelector(state => state.auth.form)
+
     const dispatch = useDispatch()
     const localStorageAuthData = JSON.parse(localStorage.getItem('userData'))
-    const localStorageFavData = JSON.parse(localStorage.getItem('favorites'))
-    useEffect(() => {
-        localStorageAuthData && dispatch(setIsAuthenticated(jwt.verify(localStorageAuthData.token, 'jwtSecret')))
-    }, [])
 
     useEffect(() => {
-        localStorageFavData && dispatch(addLocalStorageQueries(localStorageFavData.favorites))
+        localStorageAuthData && dispatch(setIsAuthenticated(jwt.verify(localStorageAuthData.token, 'jwtSecret')))
     }, [])
 
     const changeHandler = event => {
