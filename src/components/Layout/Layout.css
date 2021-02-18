@@ -1,0 +1,35 @@
+.layout {
+    min-height: 100vh;
+    height: auto;
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.activeLink {
+    background-color: #002766;
+}
+
+.site-layout-content {
+    min-height: 280px;
+    padding: 24px;
+    background: #fff;
+    height: 100%;
+
+}
+
+main {
+    background-color: #f0f5ff;
+}
+
+.ant-row-rtl #components-layout-demo-top .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+
+.logo {
+    float: left;
+    width: 60px;
+    height: 60px;
+    background-image: url("../../assets/images/sibdev-logo.png");
+    background-size: contain;
+}

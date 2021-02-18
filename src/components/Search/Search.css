@@ -1,0 +1,18 @@
+.searchContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.searchTitle {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.searchContainer .ant-input-group-wrapper {
+    width: 50vw;
+
+}

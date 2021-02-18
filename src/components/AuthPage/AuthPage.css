@@ -1,0 +1,51 @@
+.formWrap {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f5ff;
+}
+
+form#basic {
+    width: 30vw;
+    margin: 0 auto;
+    border: solid 1px #cccccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+form#basic button {
+    display: block;
+    width: 140px;
+    height: 35px;
+    margin: 0 auto;
+    font-size: 16px;
+
+}
+
+.ant-form-item-label {
+    width: 100%;
+    text-align: start;
+
+
+}
+
+.ant-form-item-label label {
+    font-size: 18px;
+    color: #cccccc;
+}
+
+.authLogo {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto;
+    background-image: url("../../assets/images/sibdev-logo.png");
+    background-size: contain;
+}
+
+.authTitle {
+    font-size: 20px;
+    color: dodgerblue;
+    text-align: center;
+}
