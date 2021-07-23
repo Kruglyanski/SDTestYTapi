@@ -30,7 +30,6 @@ export const authLogin = createAsyncThunk(
     }
 )
 
-
 const authReducer = createSlice({
     name: 'authReducer',
     initialState,
@@ -48,7 +47,7 @@ const authReducer = createSlice({
             }
         },
 
-        authLogout: (state, action) => {
+        authLogout: (state) => {
             return {
                 ...state,
                 token: null,
@@ -70,7 +69,7 @@ const authReducer = createSlice({
                 }
 
             }
-        ).addCase(authLogin.rejected, (state, action) => {
+        ).addCase(authLogin.rejected, (state) => {
                     return {
                         ...state,
                         error: 'Введены неправильные данные',

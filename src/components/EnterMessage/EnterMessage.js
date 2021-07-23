@@ -1,13 +1,22 @@
 import React from 'react'
-import { message, Button } from 'antd';
+import {Button} from 'antd';
+import db from '../../db.json'
 
-const info = () => {
-    message.info('Users: 1@1.ru, 2@2.ru Password: 123');
-}
+import {formChange} from '../../redux/authReducer'
+import {useDispatch} from 'react-redux'
+
+
 export const EnterMessage = () => {
+    const dispatch = useDispatch()
+    const clickHandler = () => {
+        dispatch(formChange({
+            email: db.users[0].email, password: db.users[0].password
+        }))
+    }
     return (
-        <Button type="primary" onClick={info}>
+        <Button type="primary" onClick={clickHandler}>
             Данные для входа
+
         </Button>
     )
 
